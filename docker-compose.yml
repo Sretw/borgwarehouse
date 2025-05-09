@@ -15,7 +15,10 @@ services:
       - '${WEB_SERVER_PORT:?WEB_SERVER_PORT variable missing}:3000'
       - '${SSH_SERVER_PORT:?SSH_SERVER_PORT variable missing}:22'
     env_file:
-      - stack.env
+    - path: ./stack.env
+      required: true
+    - path: ./.env
+      required: false
     volumes:
       - ${CONFIG_PATH:?CONFIG_PATH variable missing}:/home/borgwarehouse/app/config
       - ${SSH_PATH:?SSH_PATH variable missing}:/home/borgwarehouse/.ssh
