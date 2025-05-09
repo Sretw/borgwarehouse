@@ -28,5 +28,5 @@ services:
   apprise:
     container_name: apprise
     image: caronc/apprise
-    user: 'www-data:www-data'
+    # user: 'www-data:www-data'
   
