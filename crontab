@@ -1,0 +1,2 @@
+*/5 * * * * * * curl --request POST --url 'http://192.168.50.228:3000/api/v1/cron/status' --header 'Authorization: Bearer LQltsLbD3j0nhytM1uqowKQIpfneEUwJRTTzHeGBceM='
+*/5 * * * * * * curl --request POST --url 'http://192.168.50.228:3000/api/v1/cron/storage' --header 'Authorization: Bearer LQltsLbD3j0nhytM1uqowKQIpfneEUwJRTTzHeGBceM='
