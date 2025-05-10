@@ -1,8 +1,5 @@
 FROM debian:12.10-slim
 
-ARG EXTERNAL_CRONTAB_PATH=${CRONTAB_PATH}
-ARG DEFAULT_CONTAB_PATH="./crontab_default"
-
 # Latest releases available at https://github.com/aptible/supercronic/releases
 ENV SUPERCRONIC_URL=https://github.com/aptible/supercronic/releases/download/v0.2.33/supercronic-linux-amd64 \
     SUPERCRONIC_SHA1SUM=71b0d58cc53f6bd72cf2f293e09e294b79c666d8 \
@@ -23,8 +20,8 @@ WORKDIR /crontab
 # RUN if [[ -z "${CRONTAB_PATH}" ]] ; then {echo copy default crontab ; cp crontab ./crontab ; ${CRONTAB}=./crontab} fi
 COPY run.sh ./run.sh
 RUN chmod +x ./run.sh
-COPY crontab_default ${DEFAULT_CONTAB_PATH}
-RUN chmod +x ${DEFAULT_CONTAB_PATH}
+COPY crontab_default ./crontab_default
+RUN chmod +x ./crontab_default
 ENTRYPOINT [ "./run.sh" ]
 # COPY crontab ./crontab
 

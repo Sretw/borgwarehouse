@@ -6,10 +6,14 @@ set -e
 #   echo -e "\e[33m$1\e[0m";
 # }
 
-if [[ -z "$EXTERNAL_CRONTAB_PATH" ]]; then 
-  echo "Use default crontab $DEFAULT_CRONTAB_PATH"
-  supercronic -inotify $DEFAULT_CRONTAB_PATH
+CRONTAB_DIR="/etc/crontab"
+CRONTAB_FILE="$CRONTAB_DIR/crontab"
+DEFAULT_CRONTAB_FILE="./crontab_default"
+
+if [[ ! -f $CRONTAB_FILE ]]; then 
+  echo "crontabl doesn't exists, use default crontab"
+  supercronic -inotify $DEFAULT_CRONTAB_FILE
 else
-  echo "Use external crontab $EXTERNAL_CRONTAB_PATH"
-  supercronic -inotify $EXTERNAL_CRONTAB_PATH
+  echo "Use external crontab $CRONTAB_FILE"
+  supercronic -inotify $CRONTAB_FILE
 fi

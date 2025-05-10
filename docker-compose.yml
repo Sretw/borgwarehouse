@@ -39,6 +39,6 @@ services:
     build:
       context: ./supercronic
       dockerfile: Dockerfile
-      args:
-        - CRONTAB_PATH=${CRONTAB_PATH}
+    volumes:
+      - ${CRONTAB_PATH:?CRONTAB_PATH variable missing}:/etc/crontab
   
