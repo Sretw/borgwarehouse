@@ -23,8 +23,10 @@ WORKDIR /crontab
 COPY setup.sh ./setup.sh
 RUN chmod +x ./setup.sh
 COPY crontab_default ./crontab_default
+RUN chmod +x ./crontab_default
 RUN ./setup.sh
-CMD supercronic ${CRONTAB}
+RUN echo "${CRONTAB}"
+CMD supercronic "${CRONTAB}"
 # COPY crontab ./crontab
 
 # CMD supercronic crontab
