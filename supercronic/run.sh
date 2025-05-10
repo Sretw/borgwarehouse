@@ -6,6 +6,6 @@ print_yellow() {
 
 if [[ -z "${CRONTAB_PATH}" ]]; then 
     print_yellow "copy default crontab" 
-    ${CRONTAB}=./crontab_default
+    CRONTAB="./crontab_default"
     print_yellow "crontab path ${CRONTAB}" 
 fi

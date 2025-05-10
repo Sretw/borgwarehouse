@@ -1,6 +1,6 @@
 FROM debian:12.10-slim
 
-ARG CRONTAB=${CRONTAB_PATH}
+ARG CRONTAB="${CRONTAB_PATH}"
 
 # Latest releases available at https://github.com/aptible/supercronic/releases
 ENV SUPERCRONIC_URL=https://github.com/aptible/supercronic/releases/download/v0.2.33/supercronic-linux-amd64 \
