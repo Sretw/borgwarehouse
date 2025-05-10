@@ -22,7 +22,7 @@ WORKDIR /crontab
 # RUN if [[ -z "${CRONTAB_PATH}" ]] ; then {echo copy default crontab ; cp crontab ./crontab ; ${CRONTAB}=./crontab} fi
 COPY run.sh ./run.sh
 COPY crontab_default ./crontab_default
-SHELL [ "/bin/bash", "-c", "source ./run.sh" ]
+RUN /bin/bash -c source ./run.sh
 CMD supercronic ${CRONTAB}
 # COPY crontab ./crontab
 
