@@ -12,8 +12,9 @@ DEFAULT_CRONTAB_FILE="./crontab_default"
 
 if [[ ! -f $CRONTAB_FILE ]]; then 
   echo "crontabl doesn't exists, use default crontab"
-  supercronic -inotify $DEFAULT_CRONTAB_FILE
+  cp $DEFAULT_CRONTAB_FILE $CRONTAB_FILE
 else
   echo "Use external crontab $CRONTAB_FILE"
-  supercronic -inotify $CRONTAB_FILE
 fi
+
+supercronic -inotify $CRONTAB_FILE
