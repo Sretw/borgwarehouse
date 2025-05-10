@@ -24,11 +24,11 @@ services:
       - ${BORG_REPOSITORY_PATH:?BORG_REPOSITORY_PATH variable missing}:/home/borgwarehouse/repos
       - ${TMP_PATH:?TMP_PATH variable missing}:/home/borgwarehouse/tmp
       - ${LOGS_PATH:?LOGS_PATH variable missing}:/home/borgwarehouse/logs
-    healthcheck:
-      test: ["CMD", "curl -f --request POST --url 'http://localhost:3000/api/v1/cron/status' --header 'Authorization: Bearer ${CRONJOB_KEY:?CRONJOB_KEY variable missing}'"]
-      interval: 5s
-      retries: 5
-      timeout: 5s
+    # healthcheck:
+    #   test: ["CMD", "curl -f --request POST --url 'http://localhost:3000/api/v1/cron/status' --header 'Authorization: Bearer ${CRONJOB_KEY:?CRONJOB_KEY variable missing}'"]
+    #   interval: 5s
+    #   retries: 5
+    #   timeout: 5s
   # Apprise is used to send notifications, it's optional. http://apprise:8000 is the URL to use in BorgWarehouse.
   apprise:
     container_name: apprise
