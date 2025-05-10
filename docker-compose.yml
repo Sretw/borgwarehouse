@@ -25,7 +25,7 @@ services:
       - ${TMP_PATH:?TMP_PATH variable missing}:/home/borgwarehouse/tmp
       - ${LOGS_PATH:?LOGS_PATH variable missing}:/home/borgwarehouse/logs
     healthcheck:
-      test: ["CMD-SHELL", "curl -f --request POST --url 'http://localhost:3000/api/v1/cron/status' --header 'Authorization: Bearer ${CRONJOB_KEY:?CRONJOB_KEY variable missing}'"]
+      test: ["CMD-SHELL", "curl -f --request POST --url 'http://borgwarehouse:3000/api/v1/cron/status' --header 'Authorization: Bearer ${CRONJOB_KEY:?CRONJOB_KEY variable missing}'"]
       interval: 5s
       retries: 5
       timeout: 5s
