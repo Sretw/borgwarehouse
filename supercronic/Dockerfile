@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM debian:12.10-slim
 
 # Latest releases available at https://github.com/aptible/supercronic/releases
 ENV SUPERCRONIC_URL=https://github.com/aptible/supercronic/releases/download/v0.2.33/supercronic-linux-amd64 \
