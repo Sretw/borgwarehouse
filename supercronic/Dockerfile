@@ -19,7 +19,7 @@ RUN curl -fsSLO "$SUPERCRONIC_URL" \
 
 WORKDIR /crontab
 
-RUN if [[ -z "${CRONTAB_PATH}"]]; then echo copy default crontab; cp crontab ./crontab; ${CRONTAB}=./crontab
+RUN if [[ -z "${CRONTAB_PATH}"]]; then echo copy default crontab; cp crontab ./crontab; ${CRONTAB}=./crontab; fi
 CMD supercronic ${CRONTAB}
 # COPY crontab ./crontab
 
