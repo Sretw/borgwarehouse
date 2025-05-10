@@ -44,4 +44,7 @@ services:
     build:
       context: ./supercronic
       dockerfile: Dockerfile
+    depends_on:
+      borgwarehouse:
+        condition: service_healthy
   
