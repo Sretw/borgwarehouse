@@ -18,6 +18,5 @@ RUN curl -fsSLO "$SUPERCRONIC_URL" \
 WORKDIR /crontab
 
 COPY crontab ./crontab
-COPY start.sh ./start.sh
 
-ENTRYPOINT ["./start.sh"]
+CMD supercronic crontab
