@@ -7,9 +7,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      tags: 
+        - borgwarehouse-nas:latest
       args:
-          - UID=${UID}
-          - GID=${GID}
+        - UID=${UID}
+        - GID=${GID}
     # image: borgwarehouse/borgwarehouse
     user: '${UID:?UID variable missing}:${GID:?GID variable missing}'
     ports:
@@ -44,6 +46,8 @@ services:
     build:
       context: ./supercronic
       dockerfile: Dockerfile
+      tags:
+        - supercronic-nas:latest
     depends_on:
       borgwarehouse:
         condition: service_healthy
