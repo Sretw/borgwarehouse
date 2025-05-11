@@ -2,7 +2,6 @@ services:
   borgwarehouse:
     container_name: borgwarehouse
     pull_policy: build
-    network_mode: "host"
     # If you want to build the image yourself, uncomment the following lines and comment the image line
     build:
       context: .
@@ -28,7 +27,6 @@ services:
   apprise:
     container_name: apprise
     image: caronc/apprise
-    network_mode: "host"
     ports:
       - '${APPRISE_PORT:?APPRISE_PORT variable missing}:8000'
   #   # user: 'www-data:www-data'
@@ -36,7 +34,6 @@ services:
   supercronic:
     container_name: supercronic
     pull_policy: build
-    network_mode: "host"
     # If you want to build the image yourself, uncomment the following lines and comment the image line
     build:
       context: ./supercronic
