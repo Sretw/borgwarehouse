@@ -30,7 +30,7 @@ services:
     image: caronc/apprise
     network_mode: "host"
     ports:
-      - '${APPRISE_PORT}:8000'
+      - '${APPRISE_PORT:?APPRISE_PORT variable missing}:8000'
   #   # user: 'www-data:www-data'
   
   supercronic:
