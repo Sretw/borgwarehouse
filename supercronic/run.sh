@@ -6,6 +6,7 @@ set -e
 #   echo -e "\e[33m$1\e[0m";
 # }
 
+# define variables
 CRONTAB_DIR="/etc/crontab"
 CRONTAB_FILE="$CRONTAB_DIR/crontab"
 DEFAULT_CRONTAB_FILE="./crontab_default"
